@@ -1,11 +1,7 @@
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doNothing;
@@ -46,8 +42,11 @@ class HippodromeTest {
     void getHorses_ReturnSameList() {
         List<Horse> horses = createListOf30DifferentHorses();
         Hippodrome hippodrome = new Hippodrome(horses);
-        List<Horse> returnedHorse = hippodrome.getHorses();
-        assertEquals(horses,returnedHorse);
+        Horse winner = hippodrome.getWinner();
+                // Get the horse with the largest distance value:
+        Horse expectedWinner = horses.stream().max(Comparator.comparing(Horse::getDistance)).orElse(null);
+
+        assertEquals(expectedWinner,winner);
     }
 
     private List<Horse> createMockListOfHorses(int numHorses) {
@@ -70,6 +69,10 @@ class HippodromeTest {
     }
 
     @Test
-    void getWinner() {
+    void getWinner_ReturnHorseWithHighestDistance() {
+        List<Horse> horses = createListOf30DifferentHorses();
+        Hippodrome hippodrome = new Hippodrome(horses);
+        Horse winner = hippodrome.getWinner();
+        assertEquals(horses,winner);
     }
 }
