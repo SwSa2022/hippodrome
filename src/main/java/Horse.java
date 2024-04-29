@@ -5,6 +5,8 @@ public class Horse {
     private final String name;
     private final double speed;
     private double distance;
+    private final boolean moved = true;
+
 
     public Horse(String name, double speed, double distance) {
         if (isNull(name)) {
@@ -23,7 +25,6 @@ public class Horse {
         this.speed = speed;
         this.distance = distance;
     }
-
     public Horse(String name, double speed) {
         this(name, speed, 0);
     }
@@ -46,5 +47,9 @@ public class Horse {
 
     public static double getRandomDouble(double min, double max) {
         return (Math.random() * (max - min)) + min;
+    }
+
+    public boolean isMoved() {
+        return moved;
     }
 }
