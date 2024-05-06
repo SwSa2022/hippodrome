@@ -72,7 +72,8 @@ class HippodromeTest {
     void getWinner_ReturnHorseWithHighestDistance() {
         List<Horse> horses = createListOf30DifferentHorses();
         Hippodrome hippodrome = new Hippodrome(horses);
+        Horse expectedWinner = horses.stream().max(Comparator.comparing(Horse::getDistance)).orElse(null);
         Horse winner = hippodrome.getWinner();
-        assertEquals(horses,winner);
+        assertEquals(expectedWinner,winner);
     }
 }
