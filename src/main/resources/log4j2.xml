@@ -3,8 +3,8 @@
 <Configuration status="WARN">
     <Appenders>
         <RollingFile name="RollingFile" fileName="logs/hippodrome.log"
-                     filePattern="logs/hippodrome-%d{yyyy-MM-dd}.log" encoding="UTF-8">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] [%logger{36}] - %msg%n" encoding="UTF-8"/>
+                     filePattern="logs/hippodrome-%d{yyyy-MM-dd}.log" >
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] [%logger{36}] - %msg%n" />
             <Policies>
 <!--                <TimeBasedTriggeringPolicy interval = "1"/>-->
 <!--                <SizeBasedTriggeringPolicy size="250 MB" />-->
